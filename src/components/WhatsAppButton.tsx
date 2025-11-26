@@ -6,9 +6,9 @@ export function WhatsAppButton() {
   
   // Replace with your actual WhatsApp business number (include country code without + or spaces)
   // Example: For +1 555-123-4567, use 15551234567
-  const whatsappNumber = '+91 8089732244'; // Replace with your actual number
+  const whatsappNumber = '918089732244'; // Replace with your actual number
   const message = encodeURIComponent('Hello! I would like to know more about your services.');
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+  const whatsappUrl = `https://wa.me/918089732244?text=${message}`;
 
   return (
     <a
