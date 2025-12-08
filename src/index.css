@@ -197,3 +197,11 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #581C87;
 }
+@font-face {
+  font-family: 'Conthrax';
+  src: url('/static/fonts/Conthrax-SemiBold.woff2') format('woff2'),
+       url('/static/fonts/Conthrax-SemiBold.woff2') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+

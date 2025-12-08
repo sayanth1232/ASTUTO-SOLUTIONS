@@ -122,41 +122,90 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* --- UPDATED ABOUT US SECTION --- */}
       <section className="py-16 lg:py-24 bg-purple-50">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
             <div>
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop"
-                alt="Our story"
+                alt="About Astuto"
                 width={800}
                 height={600}
                 loading="lazy"
                 className="rounded-2xl w-full h-auto shadow-lg"
               />
             </div>
+
             <div>
               <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full mb-6">
                 <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                <span className="text-sm font-medium">OUR STORY</span>
+                <span className="text-sm font-medium">ABOUT US</span>
               </div>
+
               <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900">
-                Building success stories since 2008
+                Driving Financial Excellence for Sustainable Growth
               </h2>
+
               <p className="text-base lg:text-lg mb-6 text-gray-600 leading-relaxed">
-                Founded with a vision to transform how businesses approach financial management and strategic planning, Astuto Solutions has grown from a small consultancy to a trusted partner for hundreds of companies worldwide.
+                At Astuto Solutions, we empower businesses to make informed financial decisions,
+                strengthen governance, and create sustainable long-term value. Our experienced consultants
+                merge technical expertise with industry-specific insight to deliver measurable improvements.
               </p>
+
               <p className="text-base lg:text-lg mb-6 text-gray-600 leading-relaxed">
-                Our journey began with a simple belief: every business deserves access to world-class expertise and personalized guidance. Today, we continue to uphold that belief, helping startups and established companies alike achieve their goals.
+                We work closely with organizations to elevate financial performance, streamline operational
+                processes, and apply data-driven strategies that support confident and strategic decision-making.
               </p>
+
               <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                Through innovation, dedication, and an unwavering commitment to our clients' success, we've built a reputation for excellence that speaks for itself.
+                Whether you are a growing business building structure or an established company preparing to
+                scale, we provide tailored financial advisory solutions designed to meet your unique goals.
               </p>
             </div>
           </div>
         </div>
       </section>
+
+{/* --- NEW SECTION BELOW ABOUT US --- */}
+<section className="py-16 lg:py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-8 lg:px-16">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      {/* Text Content */}
+      <div>
+        <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full mb-6">
+          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+          <span className="text-sm font-medium">OUR APPROACH</span>
+        </div>
+
+        <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900">
+          Strategic Financial Guidance That Moves Your Business Forward
+        </h2>
+
+        <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
+          Astuto Solutions helps organizations improve financial clarity, reduce risk,
+          and enhance performance through expert advisory and innovative, data-driven
+          solutions. We turn complex financial challenges into clear opportunities for growth.
+        </p>
+      </div>
+
+      {/* Image */}
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1709715357549-f2d587846ee1?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Financial Strategy"
+          width={800}
+          height={600}
+          loading="lazy"
+          className="rounded-2xl w-full h-auto shadow-lg"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* Our Values */}
       <section className="py-16 lg:py-24 bg-white">

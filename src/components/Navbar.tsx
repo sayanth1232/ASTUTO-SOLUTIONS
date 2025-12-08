@@ -49,19 +49,50 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center group" onClick={handleNavClick}>
-            <div className="flex items-center gap-3">
-              <img 
-                src="/logo.png" 
-                alt="Astuto Solutions Logo" 
-                className="h-12 w-auto object-contain group-hover:scale-105 transition-all duration-300"
-              />
-              <span className="text-xl font-bold text-gray-900 group-hover:text-purple-900 transition-colors">
-                Astuto Solutions
-              </span>
-            </div>
-          </Link>
+<Link to="/" className="flex items-center group" onClick={handleNavClick}>
+  <div className="flex items-center gap-2">
+    <img 
+      src="/logo.png" 
+      alt="Astuto Solutions Logo" 
+      className="h-12 w-auto object-contain group-hover:scale-105 transition-all duration-300"
+    />
+
+    <div className="leading-tight select-none">
+      <span
+        className="
+          font-[Conthrax]
+          font-semibold
+          text-[28px]
+          tracking-[0.12em]
+          text-[#0B0D24]
+          group-hover:text-purple-900
+          transition-colors
+          block
+        "
+      >
+        ASTUTO
+      </span>
+
+      <span
+        className="
+          font-[Conthrax]
+          font-normal
+          text-[11px]
+          tracking-[0.35em]
+          text-[#0B0D24CC]
+          group-hover:text-purple-700
+          transition-colors
+          block
+          ml-1
+
+        "
+      >
+      SOLUTIONS LLP
+      </span>
+    </div>
+  </div>
+</Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
