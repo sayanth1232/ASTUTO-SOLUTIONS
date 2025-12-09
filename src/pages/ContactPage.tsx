@@ -3,6 +3,8 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Map } from "@/components/Map";
+import kochiImg from "@/assets/kochi.png";
+
 
 import {
   MapPinIcon,
@@ -102,33 +104,108 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-8 lg:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contactInfo.map((info, index) => (
-              <Card
-                key={index}
-                className="p-6 bg-white border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className={`${info.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-4`}>
-                  {info.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">
-                  {info.title}
-                </h3>
-                <div className="space-y-1">
-                  {info.details.map((detail, idx) => (
+{/* Contact Info Cards */}
+<section className="py-16 lg:py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-8 lg:px-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      {contactInfo.map((info, index) => {
+        // Determine card click action
+        let cardLink = "";
+
+        if (info.title === "Visit Us") {
+          cardLink = "https://maps.app.goo.gl/wEJ1bpZrPbaZpGhCA";
+        } else if (info.title === "Call Us") {
+          cardLink = "tel:+918089732244"; // Main call number
+        } else if (info.title === "Email Us") {
+          cardLink = "mailto:ask@astutosolution.com"; // Main email
+        }
+
+        // Wrapper element becomes <a> or <div>
+        const Wrapper: any = cardLink ? "a" : "div";
+
+        return (
+          <Wrapper
+            key={index}
+            {...(cardLink
+              ? { href: cardLink, target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+            className="block"
+          >
+            <Card className="p-6 bg-white border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+
+              <div className={`${info.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-4`}>
+                {info.icon}
+              </div>
+
+              <h3 className="text-lg font-bold mb-3 text-gray-900">
+                {info.title}
+              </h3>
+
+              <div className="space-y-1">
+                {/* ↙ YOUR EXISTING DETAIL-LINK CODE GOES HERE */}
+                {info.details.map((detail, idx) => {
+                  
+                  // --- Visit Us (Google Maps) ---
+                  if (info.title === "Visit Us") {
+                    return (
+                      <a
+                        key={idx}
+                        href="https://maps.app.goo.gl/wEJ1bpZrPbaZpGhCA"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-sm text-gray-600 hover:text-purple-900 transition"
+                      >
+                        {detail}
+                      </a>
+                    );
+                  }
+
+                  // --- Call Us ---
+                  if (info.title === "Call Us") {
+                    const phone = detail.match(/\+?\d[\d\s-]+/);
+                    return (
+                      <a
+                        key={idx}
+                        href={phone ? `tel:${phone[0].replace(/\s+/g, "")}` : "#"}
+                        className="block text-sm text-gray-600 hover:text-blue-900 transition"
+                      >
+                        {detail}
+                      </a>
+                    );
+                  }
+
+                  // --- Email Us ---
+                  if (info.title === "Email Us") {
+                    return (
+                      <a
+                        key={idx}
+                        href={`mailto:${detail}`}
+                        className="block text-sm text-gray-600 hover:text-green-900 transition"
+                      >
+                        {detail}
+                      </a>
+                    );
+                  }
+
+                  // --- Business Hours or Others ---
+                  return (
                     <p key={idx} className="text-sm text-gray-600">
                       {detail}
                     </p>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+                  );
+                })}
+              </div>
+
+            </Card>
+          </Wrapper>
+        );
+      })}
+
+    </div>
+  </div>
+</section>
+
 
       {/* Contact Form */}
       <section className="py-16 lg:py-24 bg-purple-50">
@@ -324,7 +401,7 @@ export function ContactPage() {
     <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white max-w-xl mx-auto">
       <div className="relative h-56 overflow-hidden">
         <img
-          src="/static/kochi.png"
+          src={kochiImg}
           alt="Kochi"
           className="w-full h-full object-cover"
         />
