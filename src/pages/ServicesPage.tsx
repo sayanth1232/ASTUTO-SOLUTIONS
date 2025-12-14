@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { useNavigate } from 'react-router-dom';
 import {
   TrendingUpIcon,
   BarChart3Icon,
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react';
 
 export function ServicesPage() {
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -91,11 +93,8 @@ export function ServicesPage() {
     },
   ];
 
-  const handleGetStarted = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const handleGetStarted = () => {
+    navigate('/contact');
   };
 
   return (
@@ -194,10 +193,24 @@ export function ServicesPage() {
                         </div>
                       ))}
                     </div>
-                    <button className="flex items-center gap-2 text-purple-900 hover:text-purple-700 transition-colors font-semibold">
+                    <Button
+                      onClick={() => {
+                        const routes = [
+                          '/services/business-strategy',
+                          '/services/financial-planning',
+                          '/services/workforce-optimization',
+                          '/services/tax-compliance',
+                          '/services/risk-management',
+                          '/services/ongoing-support',
+                        ];
+                        window.location.href = routes[index];
+                      }}
+                      variant="ghost"
+                      className="flex items-center gap-2 text-purple-900 hover:text-purple-700 transition-colors font-semibold p-0 h-auto"
+                    >
                       Learn More
                       <ArrowRightIcon size={20} />
-                    </button>
+                    </Button>
                   </Card>
                 </div>
               </div>

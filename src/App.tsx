@@ -1,18 +1,65 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
+
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { PageTransition } from '@/components/PageTransition';
+
 import { HomePage } from '@/pages/HomePage';
 import { AboutPage } from '@/pages/AboutPage';
 import { ServicesPage } from '@/pages/ServicesPage';
 import { ResourcesPage } from '@/pages/ResourcesPage';
 import { ContactPage } from '@/pages/ContactPage';
-import { useEffect } from 'react';
 
+// ─────────────────────────────────────────────
+// Service Sub Pages
+// ─────────────────────────────────────────────
+import { BusinessStrategyPage } from '@/pages/services/BusinessStrategyPage';
+import { FinancialPlanningPage } from '@/pages/services/FinancialPlanningPage';
+import { WorkforceOptimizationPage } from '@/pages/services/WorkforceOptimizationPage';
+import { TaxCompliancePage } from '@/pages/services/TaxCompliancePage';
+import { RiskManagementPage } from '@/pages/services/RiskManagementPage';
+import { OngoingSupportPage } from '@/pages/services/OngoingSupportPage';
+
+// ─────────────────────────────────────────────
+// Animated Routes (NEW – does not affect logic)
+// ─────────────────────────────────────────────
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+
+        {/* Main Pages */}
+        <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
+        <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
+        <Route path="/resources" element={<PageTransition><ResourcesPage /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+
+        {/* Services Sub Pages */}
+        <Route path="/services/business-strategy" element={<PageTransition><BusinessStrategyPage /></PageTransition>} />
+        <Route path="/services/financial-planning" element={<PageTransition><FinancialPlanningPage /></PageTransition>} />
+        <Route path="/services/workforce-optimization" element={<PageTransition><WorkforceOptimizationPage /></PageTransition>} />
+        <Route path="/services/tax-compliance" element={<PageTransition><TaxCompliancePage /></PageTransition>} />
+        <Route path="/services/risk-management" element={<PageTransition><RiskManagementPage /></PageTransition>} />
+        <Route path="/services/ongoing-support" element={<PageTransition><OngoingSupportPage /></PageTransition>} />
+
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+// ─────────────────────────────────────────────
+// App Component (ORIGINAL + EXTENDED)
+// ─────────────────────────────────────────────
 export default function App() {
 
   // ─────────────────────────────────────────────
-  // Typewriter Logic
+  // Typewriter Logic (UNCHANGED)
   // ─────────────────────────────────────────────
   const messages = [
     "BUSINESS MANAGEMENT CONSULTANT",
@@ -63,23 +110,17 @@ export default function App() {
     <Router>
       <div className="min-h-screen flex flex-col">
 
-        {/* Navbar - Fixed Header */}
+        {/* Navbar - Fixed */}
         <Navbar />
 
-        {/* Typing Banner (Below Navbar) */}
+        {/* Typing Banner */}
         <div className="w-full bg-purple-900 text-white py-3 text-center mt-[80px] shadow-md">
           <span className="typewriter-text text-lg lg:text-xl font-semibold tracking-wide"></span>
         </div>
 
-        {/* Main Page Content */}
+        {/* Main Page Content (Animated) */}
         <div className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
+          <AnimatedRoutes />
         </div>
 
         {/* Footer */}
@@ -87,6 +128,7 @@ export default function App() {
 
         {/* WhatsApp Floating Button */}
         <WhatsAppButton />
+
       </div>
     </Router>
   );
