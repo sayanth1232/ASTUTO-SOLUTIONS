@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { CheckCircle2Icon, UsersIcon, TrendingUpIcon, AwardIcon, HeartIcon } from 'lucide-react';
+import { AutoParallaxPage } from '@/components/AutoParallaxPage';
 import azharImg from "../assets/azhar.jpg";
 import nidalImg from "../assets/nidal.jpg";
 import safwanImg from "../assets/safwan.jpg";
@@ -88,13 +89,13 @@ const team = [
 
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[650px] lg:min-h-[750px]
- flex items-center pt-20">
-        <div className="max-w-7xl mx-auto px-8 lg:px-16 py-16 lg:py-24 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
+    <main className="parallax-container">
+      <AutoParallaxPage speeds={[0.2, 0.25, 0.3, 0.25, 0.3, 0.25, 0.3, 0.25]}>
+        {/* Hero Section */}
+        <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[650px] lg:min-h-[750px] flex items-center pt-0 lg:pt-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-8 lg:py-24 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="text-white">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
                 <div className="w-2 h-2 bg-white rounded-full"></div>
                 <span className="text-sm font-medium">ABOUT US</span>
@@ -106,22 +107,32 @@ const team = [
                 We are a team of passionate professionals dedicated to helping businesses thrive through expert guidance and innovative solutions.
               </p>
             </div>
-            <div>
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
-                alt="Team collaboration"
-                width={800}
-                height={600}
-                loading="eager"
-                className="rounded-2xl w-full h-auto shadow-2xl"
-              />
+<div className="overflow-hidden rounded-2xl group">
+  <img
+    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
+    alt="Team collaboration"
+    width={800}
+    height={600}
+    loading="eager"
+    className="
+      w-full 
+      h-auto 
+      rounded-2xl
+      shadow-2xl
+      transition-all
+      duration-500
+      ease-out
+      group-hover:scale-105
+      group-hover:shadow-3xl
+    "
+  />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white no-parallax">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -141,16 +152,27 @@ const team = [
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            <div>
-              <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop"
-                alt="About Astuto"
-                width={800}
-                height={600}
-                loading="lazy"
-                className="rounded-2xl w-full h-auto shadow-lg"
-              />
-            </div>
+<div className="relative overflow-hidden rounded-2xl group">
+  <img
+    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop"
+    alt="About Astuto"
+    width={800}
+    height={600}
+    loading="lazy"
+    className="
+      w-full 
+      h-auto 
+      rounded-2xl
+      shadow-lg
+      transition-all 
+      duration-500 
+      ease-out
+      group-hover:scale-105
+      group-hover:shadow-3xl
+    "
+  />
+</div>
+
 
             <div>
               <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full mb-6">
@@ -205,17 +227,28 @@ const team = [
         </p>
       </div>
 
-      {/* Image */}
-      <div>
-        <img
-          src="https://images.unsplash.com/photo-1709715357549-f2d587846ee1?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Financial Strategy"
-          width={800}
-          height={600}
-          loading="lazy"
-          className="rounded-2xl w-full h-auto shadow-lg"
-        />
-      </div>
+{/* Image */}
+<div className="relative overflow-hidden rounded-2xl group">
+  <img
+    src="https://images.unsplash.com/photo-1709715357549-f2d587846ee1?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    alt="Financial Strategy"
+    width={800}
+    height={600}
+    loading="lazy"
+    className="
+      w-full 
+      h-auto 
+      rounded-2xl
+      shadow-lg
+      transition-all 
+      duration-500 
+      ease-out
+      group-hover:scale-105
+      group-hover:shadow-3xl
+    "
+  />
+</div>
+
 
     </div>
   </div>
@@ -306,7 +339,7 @@ const team = [
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-purple-900 to-purple-700">
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-purple-900 to-purple-700 no-parallax">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="p-8 lg:p-10 bg-white/10 backdrop-blur-sm border-white/20 text-white">
@@ -324,6 +357,7 @@ const team = [
           </div>
         </div>
       </section>
+      </AutoParallaxPage>
     </main>
   );
 }

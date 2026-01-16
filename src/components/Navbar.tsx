@@ -54,7 +54,7 @@ export function Navbar() {
     <img 
       src="/logo.png" 
       alt="Astuto Solutions Logo" 
-      className="h-12 w-auto object-contain group-hover:scale-105 transition-all duration-300"
+      className="h-9 sm:h-10 lg:h-12 w-auto object-contain group-hover:scale-105 transition-all duration-300"
     />
 
     <div className="leading-tight select-none">
@@ -62,7 +62,7 @@ export function Navbar() {
         className="
           font-[Conthrax]
           font-semibold
-          text-[28px]
+          text-[20px] sm:text-[22px] lg:text-[28px]
           tracking-[0.12em]
           text-[#0B0D24]
           group-hover:text-purple-900
@@ -77,21 +77,21 @@ export function Navbar() {
         className="
           font-[Conthrax]
           font-normal
-          text-[11px]
-          tracking-[0.35em]
+          text-[9px] sm:text-[10px] lg:text-[11px]
+          tracking-[0.25em] sm:tracking-[0.3em] lg:tracking-[0.35em]
           text-[#0B0D24CC]
           group-hover:text-purple-700
           transition-colors
           block
           ml-1
-
         "
       >
-      SOLUTIONS LLP
+        SOLUTIONS LLP
       </span>
     </div>
   </div>
 </Link>
+
 
 
           {/* Desktop Navigation */}

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
+import { ParallaxSection } from '@/components/ParallaxSection';
 import {
   TrendingUpIcon,
   BarChart3Icon,
@@ -98,12 +99,13 @@ export function ServicesPage() {
   };
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[500px] flex items-center pt-20">
-        <div className="max-w-7xl mx-auto px-8 lg:px-16 py-16 lg:py-24 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
+    <main className="parallax-container">
+      <ParallaxSection index={0} speed={0.2}>
+        {/* Hero Section */}
+        <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[500px] flex items-center pt-0 lg:pt-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-8 lg:py-24 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="text-white">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
                 <div className="w-2 h-2 bg-white rounded-full"></div>
                 <span className="text-sm font-medium">OUR SERVICES</span>
@@ -123,20 +125,32 @@ export function ServicesPage() {
                 <ArrowRightIcon size={20} className="ml-2" />
               </Button>
             </div>
-            <div>
+            <div className="relative overflow-hidden rounded-2xl group">
               <img
                 src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop"
                 alt="Services overview"
                 width={800}
                 height={600}
                 loading="eager"
-                className="rounded-2xl w-full h-auto shadow-2xl"
+                    className="
+                      w-full 
+                      h-auto 
+                      rounded-2xl
+                      shadow-2xl
+                      transition-all 
+                      duration-500 
+                      ease-out
+                      group-hover:scale-105
+                      group-hover:shadow-3xl
+                   "
               />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ParallaxSection>
 
+      <ParallaxSection index={1} speed={0.3}>
       {/* Services Grid */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -161,17 +175,30 @@ export function ServicesPage() {
                   index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                 }`}
               >
-                {/* Image */}
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    width={800}
-                    height={600}
-                    loading="lazy"
-                    className="rounded-2xl w-full h-auto shadow-lg"
-                  />
-                </div>
+{/* Image */}
+<div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+  <div className="relative overflow-hidden rounded-2xl group">
+    <img
+      src={service.image}
+      alt={service.title}
+      width={800}
+      height={600}
+      loading="lazy"
+      className="
+        rounded-2xl 
+        w-full 
+        h-auto 
+        shadow-lg
+        transition-all 
+        duration-500 
+        ease-out
+        group-hover:scale-105
+        group-hover:shadow-2xl
+      "
+    />
+  </div>
+</div>
+
 
                 {/* Content */}
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
@@ -218,7 +245,9 @@ export function ServicesPage() {
           </div>
         </div>
       </section>
+      </ParallaxSection>
 
+      <ParallaxSection index={2} speed={0.25}>
       {/* Process Section */}
       <section className="py-16 lg:py-24 bg-purple-50">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -260,7 +289,9 @@ export function ServicesPage() {
           </div>
         </div>
       </section>
+      </ParallaxSection>
 
+      
       {/* CTA Section */}
       <section className="py-16 lg:py-24 bg-gradient-to-r from-purple-900 to-purple-700">
         <div className="max-w-4xl mx-auto px-8 lg:px-16 text-center">
@@ -280,6 +311,7 @@ export function ServicesPage() {
           </Button>
         </div>
       </section>
+     
     </main>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-
+import { ParallaxSection } from '@/components/ParallaxSection';
 import kochiImg from "@/assets/kochi.png";
 
 
@@ -100,40 +100,42 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   ];
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[650px] lg:min-h-[750px]
- flex items-center pt-20">
-        <div className="max-w-7xl mx-auto px-8 lg:px-16 py-16 lg:py-24 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-sm font-medium">CONTACT US</span>
+    <main className="parallax-container">
+      <ParallaxSection index={0} speed={0.2}>
+        {/* Hero Section */}
+        <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[650px] lg:min-h-[750px] flex items-center pt-0 lg:pt-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-8 lg:py-24 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="text-white">
+                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span className="text-sm font-medium">CONTACT US</span>
+                </div>
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+                  Let's start a conversation
+                </h1>
+                <p className="text-lg lg:text-xl font-light leading-relaxed opacity-90">
+                  We're here to help you achieve your business goals. Reach out to us and let's discuss how we can work together.
+                </p>
               </div>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
-                Let's start a conversation
-              </h1>
-              <p className="text-lg lg:text-xl font-light leading-relaxed opacity-90">
-                We're here to help you achieve your business goals. Reach out to us and let's discuss how we can work together.
-              </p>
-            </div>
-            <div>
-              <img
-                src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=800&h=600&fit=crop"
-                alt="Contact us"
-                width={800}
-                height={600}
-                loading="eager"
-                className="rounded-2xl w-full h-auto shadow-2xl"
-              />
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=800&h=600&fit=crop"
+                  alt="Contact us"
+                  width={800}
+                  height={600}
+                  loading="eager"
+                  className="rounded-2xl w-full h-auto shadow-2xl"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ParallaxSection>
+
 
 {/* Contact Info Cards */}
-<section className="py-16 lg:py-24 bg-white">
+<section className="py-16 lg:py-24 bg-white ">
   <div className="max-w-7xl mx-auto px-8 lg:px-16">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
 
@@ -234,8 +236,9 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     </div>
   </div>
 </section>
+   
 
-
+      <ParallaxSection index={2} speed={0.3}>
       {/* Contact Form */}
       <section className="py-16 lg:py-24 bg-purple-50">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -405,9 +408,9 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           </div>
         </div>
       </section>
+      </ParallaxSection>
 
-
-
+      <ParallaxSection index={3} speed={0.25}>
 {/* Office Location */}
 <section className="py-16 lg:py-24 bg-white">
   <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -466,9 +469,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   </div>
 </section>
+      </ParallaxSection>
 
-
-<section className="py-16 lg:py-24 bg-purple-50">
+      <ParallaxSection index={4} speed={0.3}>
+        <section className="py-16 lg:py-24 bg-purple-50">
   <div className="max-w-7xl mx-auto px-8 lg:px-16">
     <Card className="overflow-hidden border-none shadow-lg relative">
 
@@ -507,6 +511,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
 
 
+      </ParallaxSection>
     </main>
   );
 }

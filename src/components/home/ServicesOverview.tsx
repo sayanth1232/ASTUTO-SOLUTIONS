@@ -31,16 +31,27 @@ export function ServicesOverview() {
           </div>
 
           {/* Image */}
-          <div className="animate-fade-in-right">
-            <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
-              alt="Team collaboration"
-              width={800}
-              height={600}
-              loading="lazy"
-              className="rounded-2xl w-full h-auto shadow-lg hover:shadow-xl transition-shadow duration-500"
-            />
-          </div>
+<div className="animate-fade-in-right flex justify-center">
+  <div className="group w-full overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-500">
+    <img
+      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
+      alt="Team collaboration"
+      width={800}
+      height={600}
+      loading="lazy"
+      className="
+        w-full 
+        h-auto 
+        object-cover
+        transition-transform 
+        duration-500 
+        ease-out
+        group-hover:scale-105
+      "
+    />
+  </div>
+</div>
+
         </div>
       </div>
     </section>

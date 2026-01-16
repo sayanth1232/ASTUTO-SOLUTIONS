@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { ParallaxSection } from '@/components/ParallaxSection';
 import {
   CalendarIcon,
   ClockIcon,
@@ -141,9 +142,10 @@ export function ResourcesPage() {
   ];
 
   return (
-    <main>
-      {/* HERO SECTION */}
-      <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[650px] lg:min-h-[750px]
+    <main className="parallax-container">
+      <ParallaxSection index={0} speed={0.2}>
+        {/* HERO SECTION */}
+        <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[650px] lg:min-h-[750px]
  flex items-center pt-20">
         <div className="max-w-7xl mx-auto px-8 lg:px-16 py-16 lg:py-24 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -159,20 +161,35 @@ export function ResourcesPage() {
                 Access expert insights, guides, templates, and tools to help your business thrive.
               </p>
             </div>
-            <div>
-              <img
-                src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&h=600&fit=crop"
-                alt="Resources"
-                width={800}
-                height={600}
-                loading="eager"
-                className="rounded-2xl w-full h-auto shadow-2xl"
-              />
-            </div>
+<div>
+  <div className="relative overflow-hidden rounded-2xl group">
+    <img
+      src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&h=600&fit=crop"
+      alt="Resources"
+      width={800}
+      height={600}
+      loading="eager"
+      className="
+        rounded-2xl
+        w-full
+        h-auto
+        shadow-2xl
+        transition-all
+        duration-500
+        ease-out
+        group-hover:scale-105
+        group-hover:shadow-3xl
+      "
+    />
+  </div>
+</div>
+
           </div>
         </div>
       </section>
+      </ParallaxSection>
 
+     
       {/* FREE RESOURCES */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -208,7 +225,9 @@ export function ResourcesPage() {
           </div>
         </div>
       </section>
+      
 
+      <ParallaxSection index={2} speed={0.25}>
       {/* BLOG SECTION */}
       <section className="py-16 lg:py-24 bg-purple-50">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -257,6 +276,7 @@ export function ResourcesPage() {
           </div>
         </div>
       </section>
+      </ParallaxSection>
     </main>
   );
 }

@@ -55,17 +55,26 @@ const experts = [
               key={index}
               className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white"
             >
-              <div className="relative h-80 overflow-hidden">
-                <img
-                  src={expert.image}
-                  alt={expert.name}
-                  width={400}
-                  height={400}
-                  loading="lazy"
-                  className={`w-full h-full object-cover ${expert.imagePosition ?? 'object-center'}`}
+<div className="relative h-80 overflow-hidden group">
+  <img
+    src={expert.image}
+    alt={expert.name}
+    width={400}
+    height={400}
+    loading="lazy"
+    className={`
+      w-full
+      h-full
+      object-cover
+      ${expert.imagePosition ?? 'object-center'}
+      transition-transform
+      duration-500
+      ease-out
+      group-hover:scale-105
+    `}
+  />
+</div>
 
-                />
-              </div>
               <div className="p-6">
                 <h3 className="font-bold text-xl mb-2 text-gray-900">
                   {expert.name}

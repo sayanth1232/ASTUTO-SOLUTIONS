@@ -15,7 +15,7 @@ export function TestimonialsSection() {
       avatar: 'https://images.unsplash.com/photo-1557862921-37829c790f19?w=100&h=100&fit=crop',
     },
     {
-      name: 'Anita N.',
+      name: 'Anit N.',
       role: 'Founder, Startup Business',
       rating: 5,
       text: 'The team at Astuto Solutions provided clear and practical advice on taxation and financial planning. Their professional approach allowed us to stay compliant while focusing on scaling our business.',

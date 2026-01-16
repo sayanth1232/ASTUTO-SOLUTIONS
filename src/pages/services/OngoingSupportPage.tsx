@@ -23,7 +23,7 @@ export function OngoingSupportPage() {
   const supportLevels = [
     {
       title: 'Essential Support',
-      price: 'Starting at $2,500/mo',
+      price: 'Request a Quote',
       features: [
         'Monthly strategic reviews',
         'Email support (24hr response)',
@@ -33,7 +33,7 @@ export function OngoingSupportPage() {
     },
     {
       title: 'Premium Support',
-      price: 'Starting at $5,000/mo',
+      price: 'Tailored to Your Needs',
       features: [
         'Bi-weekly strategic reviews',
         'Priority email & phone support',

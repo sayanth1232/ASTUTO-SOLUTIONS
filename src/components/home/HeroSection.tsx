@@ -4,24 +4,32 @@ import { Link } from 'react-router-dom';
 
 export function HeroSection() {
   return (
-    <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[600px] lg:min-h-[700px] pt-16">
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 py-10 lg:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="bg-gradient-to-r from-purple-900 to-purple-700 min-h-[600px] lg:min-h-[700px] pt-0 lg:pt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-8 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Image */}
-          <div className="order-2 lg:order-1 animate-fade-in-up flex justify-center">
+<div className="order-2 lg:order-1 animate-fade-in-up flex justify-center">
+  <div className="group w-full max-w-[800px] h-[500px] overflow-hidden rounded-2xl shadow-2xl">
+    <img
+      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1200&q=80&auto=format"
+      alt="Professional Businessman"
+      loading="eager"
+      decoding="async"
+      className="
+        w-full 
+        h-full 
+        object-cover 
+        object-[50%_35%]
+        transition-transform 
+        duration-500 
+        ease-out
+        group-hover:scale-105
+      "
+    />
+  </div>
+</div>
 
-            <img
-              src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-"
-              alt="Professional Businessman"
 
-              width={800}
-              height={600}
-              
-              loading="eager"
-              className="rounded-2xl max-w-[800px] max-h-[500px] w-full h-auto object-cover object-[50%_30%] shadow-2xl hover:shadow-3xl transition-shadow duration-500 "
-            />
-          </div>
 
           {/* Content */}
           <div className="order-1 lg:order-2 text-white animate-fade-in-up animation-delay-200">
