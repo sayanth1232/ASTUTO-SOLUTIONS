@@ -30,7 +30,7 @@ export function ParallaxSection({
 
       const scrollY = window.scrollY;
 
-      /* ✅ MOBILE FIX: prevent parallax at page load */
+      /* ✅ Prevent mobile jump at page load */
       if (isMobile && scrollY < 50) {
         setTransform({
           translateY: 0,
@@ -45,42 +45,49 @@ export function ParallaxSection({
       const sectionTop = sectionRef.current.offsetTop;
       const sectionHeight = sectionRef.current.offsetHeight;
 
-      // Calculate section's position relative to viewport center
+      // Position math
       const viewportCenter = scrollY + windowHeight / 2;
       const sectionCenter = sectionTop + sectionHeight / 2;
       const distanceFromCenter = viewportCenter - sectionCenter;
 
-      // Normalize distance
-      const normalizedDistance = distanceFromCenter / (windowHeight * 0.8);
+      /* ✅ MOBILE: slower normalization */
+      const normalizedDistance =
+        distanceFromCenter /
+        (windowHeight * (isMobile ? 1.2 : 0.8));
 
-      // Reduce effect for small sections
       const isSmallSection = sectionHeight < windowHeight * 0.5;
       const parallaxMultiplier = isSmallSection ? 0.3 : 1;
 
+      /* ✅ MOBILE: reduced translate strength */
       const translateY =
-        normalizedDistance * speed * 100 * parallaxMultiplier;
+        normalizedDistance *
+        speed *
+        (isMobile ? 60 : 100) *
+        parallaxMultiplier;
 
-const scaleAmount = isMobile
-  ? 0.12           // 👈 very small scale on mobile
-  : isSmallSection
-  ? 0.05
-  : 0.12;
+      /* 🛑 Micro-movement dead zone (removes jitter) */
+      if (isMobile && Math.abs(translateY) < 0.8) return;
 
-const scale = 1 - Math.abs(normalizedDistance) * scaleAmount;
+      /* ✅ MOBILE: softer scale */
+      const scaleAmount = isMobile
+        ? 0.06
+        : isSmallSection
+        ? 0.05
+        : 0.12;
 
-const opacity = isMobile
-  ? Math.max(0.85, 1 - Math.abs(normalizedDistance) * 0.25)
-  : Math.max(0.7, 1 - Math.abs(normalizedDistance) * 0.5);
+      const scale = 1 - Math.abs(normalizedDistance) * scaleAmount;
 
+      /* ✅ MOBILE: softer opacity change */
+      const opacity = isMobile
+        ? Math.max(0.92, 1 - Math.abs(normalizedDistance) * 0.15)
+        : Math.max(0.7, 1 - Math.abs(normalizedDistance) * 0.5);
 
-
-      // Z-index overlap
       const zIndex = Math.floor(100 - Math.abs(normalizedDistance) * 70);
 
       setTransform({
         translateY,
         scale: Math.max(0.95, Math.min(1, scale)),
-        opacity: Math.max(0.7, Math.min(1, opacity)),
+        opacity,
         zIndex: Math.max(10, Math.min(100, zIndex)),
       });
     };
@@ -106,7 +113,7 @@ const opacity = isMobile
       ref={sectionRef}
       className={`parallax-section ${className}`}
       style={{
-        transform: `translateY(${transform.translateY}px) scale(${transform.scale})`,
+        transform: `translate3d(0, ${transform.translateY}px, 0) scale(${transform.scale})`,
         opacity: transform.opacity,
         zIndex: transform.zIndex,
         position: 'relative',
